@@ -6,15 +6,19 @@ import errno
 from socket import error as socket_error
 #Declaracion de variable que contiene la Ip a la cual se le realiza telnet
 HOST = "localhost"
+#puerto = sys.argv[1]
+print(puerto)
 #Definicion de funcion
 def scanner():
    os.system("sudo python scanner_ibeacon_example2.py")
 def validarTelnet():
+#   global puerto
    try: #Validacion en caso de error
       #tn = telnetlib.Telnet(HOST,8080)
       while True:
 #         print("haciendo telnet")
-         tn = telnetlib.Telnet(HOST,8080)
+         tn = telnetlib.Telnet(HOST,8080) #8080)
+#         puerto = 8080
 #         print("Connect  ") #imprimir connect en caso exitoso
          scanner()
          break
