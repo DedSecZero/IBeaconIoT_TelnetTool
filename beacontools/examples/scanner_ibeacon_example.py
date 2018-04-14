@@ -1,19 +1,16 @@
 import time
 import webbrowser
-import sys
+import sys,threading
 from beacontools import BeaconScanner, IBeaconFilter
 
-rangeMax = -65
-b = 0
+rangeMax = -40
 
 def callback(bt_addr, rssi, packet, additional_info):
+    print(threading.current_thread().)
     if rssi > rangeMax:
-       	# print("<%s, %d> %s %s" % (bt_addr, rssi, packet, additional_info))
 	print("aqui, <%d>" %(rssi))
-	webbrowser.open_new("https://www.google.com.co")
-	sys.exit(0)
    #else:
-#	print("lejos, <%d>" % (rssi))
+	
 
 
 # scan for all iBeacon advertisements from beacons with the specified uuid
