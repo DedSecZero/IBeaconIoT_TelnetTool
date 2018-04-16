@@ -11,7 +11,9 @@ HOST = "localhost"
 #print(puerto)
 #Definicion de funcion
 def scanner():
+   print("Ejecucion de Scanner en progreso")
    os.system("sudo python scanner_ibeacon_example3.py")
+   print("Escaneo Finalizado")
 def validarTelnet():
 #   global puerto
    try: #Validacion en caso de error

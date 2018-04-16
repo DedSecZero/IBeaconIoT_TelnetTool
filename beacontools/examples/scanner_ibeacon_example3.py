@@ -7,7 +7,6 @@ from beacontools import BeaconScanner, IBeaconFilter
 import threading, commands
 
 rangeMax = -40
-
 def openBrowserCam():
    #os.system("sudo chromium-browser -no-sandbox http://172.71.10.23:8080/?action=stream")
     #os.system("sudo chromium-browser -no-sandbox http://www.google.com.co")
@@ -20,15 +19,16 @@ def closeBrowser():
     os.system("sudo killall chromium-browser")
 
 def callback(bt_addr, rssi, packet, additional_info):
+    print("aqui, <%d>" %(rssi))
     if rssi > rangeMax:
         print("aqui, <%d>" %(rssi))
         output = commands.getoutput('ps -A')
         #if 'chromium-browse' in output:
         #    closeBrowser()
         print('Ejecucion Hilo Navegador')
-        #threading.Thread(target=openBrowserCam).start()
+        threading.Thread(target=openBrowserCam).start()
         #os.system("sudo chromium-browser -no-sandbox http://www.google.com.co")
-        print("NAVEGADOR ABIERTO -----------------------------")
+        #print("NAVEGADOR ABIERTO -----------------------------")
         #print('Delay de espera')
         time.sleep(15) #del
         #print('Cerrando Navegador')
@@ -43,8 +43,8 @@ scanner = BeaconScanner(callback,
 #threading.current_thread()
 
 scanner.start()
+print(threading.current_thread())
 time.sleep(15)
-#print("Stop externo")
+print("Stop externo")
 scanner.stop()
-
-
+sys.exit(0)
