@@ -12,7 +12,7 @@ HOST = "localhost"
 #Definicion de funcion
 def scanner():
    print("Ejecucion de Scanner en progreso")
-   os.system("sudo python scanner_ibeacon_example3.py")
+   os.system("/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/scanner_beacon.py")
    print("Escaneo Finalizado")
 def validarTelnet():
 #   global puerto
@@ -22,7 +22,7 @@ def validarTelnet():
 #         print("haciendo telnet")
          tn = telnetlib.Telnet(HOST,8080) #8080)
 #         puerto = 8080
-#         print("Connect  ") #imprimir connect en caso exitoso
+         print("Connect  ",HOST,":",8080) #imprimir connect en caso exitoso
          scanner()
          break
    except socket_error as serr: #control de error

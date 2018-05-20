@@ -8,13 +8,15 @@ import threading, commands
 
 rangeMax = -40
 def openBrowserCam():
-   os.system("sudo python openBrowser.py")
-    
+   #os.system("/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py")
+   #os.system("sudo su - pi -c '/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py'")
+   os.system("/bin/su - pi -c '/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py'")
 def openBrowserBlack():
     os.system("sudo chromium-browser -no-sandbox file:///home/pi/Desktop/prueba2/beacontools/examples/index.html")
 
 def closeBrowser():
-    os.system("sudo killall chromium-browser")
+    #os.system("sudo killall chromium-browser")
+    os.system("/usr/bin/killall chromium-browse")
 
 def callback(bt_addr, rssi, packet, additional_info):
     print("aqui, <%d>" %(rssi))
@@ -23,8 +25,12 @@ def callback(bt_addr, rssi, packet, additional_info):
         output = commands.getoutput('ps -A')
         print('Ejecucion Hilo Navegador')
         threading.Thread(target=openBrowserCam).start()
-        time.sleep(15) #del
+        time.sleep(30) #del
         closeBrowser()
+    else:
+        output = commands.getoutput('ps -A')
+        if 'chromium-browse' in output:
+           closeBrowser()
 
 
 # scan for all iBeacon advertisements from beacons with the specified uuid
@@ -34,7 +40,7 @@ scanner = BeaconScanner(callback,
 
 scanner.start()
 print(threading.current_thread())
-time.sleep(15)
+time.sleep(30)
 print("Stop externo")
 scanner.stop()
 sys.exit(0)
