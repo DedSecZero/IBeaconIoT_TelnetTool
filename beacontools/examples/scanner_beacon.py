@@ -8,9 +8,9 @@ import threading, commands
 
 rangeMax = -40
 def openBrowserCam():
-   #os.system("/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py")
+   os.system("/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py")
    #os.system("sudo su - pi -c '/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py'")
-   os.system("/bin/su - pi -c '/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py'")
+   #os.system("/bin/su - pi -c '/usr/bin/python /home/pi/Desktop/IBeaconIoT_TelnetTool/beacontools/examples/openBrowser.py'")
 def openBrowserBlack():
     os.system("sudo chromium-browser -no-sandbox file:///home/pi/Desktop/prueba2/beacontools/examples/index.html")
 

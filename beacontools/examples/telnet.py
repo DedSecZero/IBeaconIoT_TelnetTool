@@ -6,7 +6,7 @@ import errno
 from socket import error as socket_error
 #Declaracion de variable que contiene la Ip a la cual se le realiza telnet
 #HOST = "172.71.10.23"
-HOST = "localhost"
+HOST = "192.168.43.29"
 #puerto = sys.argv[1]
 #print(puerto)
 #Definicion de funcion
@@ -27,7 +27,8 @@ def validarTelnet():
          break
    except socket_error as serr: #control de error
       if serr.errno != errno.ECONNREFUSED:
-         raise serr
+         print("No se ha iniciado Streaming.")
+         #raise serr
 
 #while True: #ciclo para que el programa se ejecute siempre
 #threading.Thread(target=validarTelnet).start() #ejecutar hilo de validacion de telnet

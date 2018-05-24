@@ -3,7 +3,7 @@ import webbrowser
 import sys,threading
 from beacontools import BeaconScanner, IBeaconFilter
 
-rangeMax = -40
+rangeMax = -38
 
 def callback(bt_addr, rssi, packet, additional_info):
     print(threading.current_thread().)
